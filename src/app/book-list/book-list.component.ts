@@ -17,13 +17,13 @@ export class BookListComponent implements OnInit {
 
   bookList;
 
-  booksAmount;
+  booksQuantity;
 
   ngOnInit(): void {
   }
 
   getAllBooks(): IBook[] {
-    this.bookService.getBookList().subscribe(p => {this.bookList = p; this.booksAmount = this.bookList.length});
+    this.bookService.getBookList().subscribe(p => {this.bookList = p; this.booksQuantity = this.bookList.length});
     return this.books;
   }
 

@@ -1,57 +1,29 @@
-<div class="container">
-  <h2 style="color: orangered; text-align: center" class="col col-12">Add new book</h2>
+<h2 style="color: orangered; text-align: center" class="col col-12">Add new book</h2>
   <h3 class="text-success d-flex justify-content-center">{{message}}</h3>
-  <form [formGroup]="bookForm" (ngSubmit)="create()">
-    <table class="table table-light table-striped table-bordered table-hover">
-      <tr>
-        <th scope="row" class="w-25">Title:</th>
-        <td class="form-group">
-          <label class="w-100">
-            <input class="form-control" type="text" formControlName="title" placeholder="Title"/>
-          </label>
-          <div *ngIf="bookTitle.invalid && (bookTitle.dirty || bookTitle.touched)" class="alert alert-danger">
-            <div *ngIf="bookTitle.errors.required">
-              Title is required.
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">Author:</th>
-        <td>
-          <label class="w-100">
-            <input class="form-control" type="text" formControlName="author" placeholder="Author"/>
-          </label>
-          <div *ngIf="bookAuthor.invalid && (bookAuthor.dirty || bookAuthor.touched)" class="alert alert-danger">
-            <div *ngIf="bookAuthor.errors.required">
-              Author is required.
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">Description:</th>
-        <td>
-          <label class="w-100">
-            <textarea rows="5" class="form-control" formControlName="description" placeholder="Description"></textarea>
-          </label>
-          <div *ngIf="bookDescription.invalid && (bookDescription.dirty || bookDescription.touched)" class="alert alert-danger">
-            <div *ngIf="bookDescription.errors.required">
-              Description is required.
-            </div>
-          </div>
-        </td>
-      </tr>
-    </table>
-    <div class="row">
-      <div class="col col-3"></div>
-      <div class="col col-3">
-        <button type="submit" class="btn btn-block btn-primary" [disabled]="bookForm.invalid">Add book</button>
-      </div>
-      <div class="col col-3">
-        <button class="btn btn-block btn-success" routerLink="/">Back to list</button>
-      </div>
+  <form >
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="book.title" name="title">
     </div>
-  </form>
-</div>
 
+    <div class="form-group">
+      <label for="name">Author</label>
+      <input type="text" class="form-control" id="author" required [(ngModel)]="book.author" name="author">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Descripton</label>
+      <input type="text" class="form-control" id="descripton" required [(ngModel)]="book.descripton" name="descripton">
+    </div>
+
+<div class="row">
+  <div class="col col-3"></div>
+  <div class="col col-3">
+    <button class="btn btn-block btn-danger" (click)="create()">Submit</button>
+  </div>
+  <div class="col col-3">
+    <button class="btn btn-block btn-success" routerLink="/">Back</button>
+  </div>
+</div>
+  
+  </form>
